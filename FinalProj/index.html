@@ -56,109 +56,138 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #333;
-      padding: 10px;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    section {
-      padding: 100px 20px;
-      margin-top: 50px;
-      border-bottom: 1px solid #ddd;
-    }
-    #viz-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- Navigation -->
 <nav>
   <a href="#chart1">Canada</a>
-  <a href="#chart2">Chart 2</a>
-  <a href="#chart3">Chart 3</a>
+  <a href="#chart2">United States</a>
+  <a href="#chart3">China</a>
+  <a href="#chart4">Netherlands</a>
 </nav>
 
 <!-- Section 1 -->
 <section id="chart1">
-  <h2>Canada Chart</h2>
+  <h2>Canada Overdose Chart</h2>
   <div id="vis1"></div>
+  <p>Canada's overdose death rates is onthe rise.</p>
+  
 </section>
 
 <!-- Section 2 -->
 <section id="chart2">
-  <h2>Visualization 2</h2>
+  <h2>The United States Overdose Chart</h2>
   <div id="vis2"></div>
+  <p>The United States has experienced one of the highest overdose death rates globally.</p>
 </section>
 
 <!-- Section 3 -->
 <section id="chart3">
-  <h2>Visualization 3</h2>
+  <h2>China Overdose Chart</h2>
   <div id="vis3"></div>
+  <p>China's overdose rate encountered a sharp decline in the early 2000s.</p>
+</section>
+
+<!-- Section 4 -->
+<section id="chart4">
+  <h2>The Netherlands Overdose Chart</h2>
+  <div id="vis4"></div>
+  <p>The Netherlands overdose rate has been relatavly the same in the past 40 years</p>
+</section>
+
+<!-- Section 5 -->
+<section id="chart5">
+  <h2>Combined Visualization</h2>
+  <div id="vis5"></div>
 </section>
 
 <script>
-  // Example: Vega-Lite Specification for Chart 1
-  const chart1Spec = {
-    $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-    description: "A simple bar chart",
-    data: { url: "Drug use disorder death rate - Sheet3.csv" }, // Replace "data.csv" with your actual file path
-    mark: "bar",
-    // width:"container",
-    // height:auto,
-    encoding: {
-      x: { field: "location", type: "nominal" },
-      y: { field: "val", type: "quantitative" }
-    }
-  };
+//   const chart1Spec = {
+//     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+//     description: "A simple line graph showing Canada's overdose through out the years",
+//     data: { url: "Drug use disorder death rate - Sheet3.csv" }, // Replace "data.csv" with your actual file path
+//     transform: [
+//     { filter: "datum.location === 'Canada'" } // Filters data to only include rows where location is "Canada"
+//   ],
+//     mark: "line",
+//     // width:"container",
+//     // height:auto,
+//     encoding: {
+//       x: { field: "year", type: "nominal", 
+//       axis: {
+//         title: "Year", 
+//         labelFont: "Arial",
+//         labelFontSize: 12,
+//         labelAngle: 45, // Rotate x-axis labels if they overlap
+//         titleFont: "Times New Roman", 
+//         titleFontSize: 16, 
+//         }
+//       },
 
-  // Render the visualization
-  vegaEmbed("#vis1", chart1Spec);
+//       y: { field: "val", type: "quantitative",
+//       axis: {
+//         title: "Death Rate per 100,000", 
+//         labelFont: "Arial",
+//         labelFontSize: 12,
+//         titleFont: "Times New Roman", 
+//         titleFontSize: 16,      
+//         }
+//        }
+//     },
+//   };
 
-  // Example: Chart 2 Specification
-  const chart2Spec = {
-    $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-    description: "A simple line chart",
-    data: { url: "data.csv" },
-    mark: "line",
-    encoding: {
-      x: { field: "time", type: "temporal" },
-      y: { field: "value", type: "quantitative" }
-    }
-  };
+//   // Render
+//   vegaEmbed("#vis1", chart1Spec);
 
-  // Render the visualization
-  vegaEmbed("#vis2", chart2Spec);
 
-  // Example: Chart 3 Specification
-  const chart3Spec = {
-    $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-    description: "A scatterplot",
-    data: { url: "data.csv" },
-    mark: "circle",
-    encoding: {
-      x: { field: "x_field", type: "quantitative" },
-      y: { field: "y_field", type: "quantitative" }
-    }
-  };
+    const yDomain = [0, 22]; // Adjust the range based on your data
 
-  // Render the visualization
-  vegaEmbed("#vis3", chart3Spec);
+    const dataUrl = "Drug use disorder death rate - Sheet3.csv";
+
+    const createChartSpec = (location) => ({
+      $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+      description: `A line graph for ${location}`,
+      data: { url: "Drug use disorder death rate - Sheet3.csv" },
+      transform: [
+        { filter: `datum.location === '${location}'` }
+      ],
+      mark: "line",
+      encoding: {
+        x: {
+          field: "year",
+          type: "ordinal",
+          axis: {
+            title: "Year",
+            labelFont: "Arial",
+            labelFontSize: 12,
+            labelAngle: 45,
+            titleFont: "Times New Roman",
+            titleFontSize: 16
+          }
+        },
+        y: {
+          field: "val",
+          type: "quantitative",
+          scale: { domain: yDomain }, // Shared scale
+          axis: {
+            title: "Death Rate per 100,000",
+            labelFont: "Arial",
+            labelFontSize: 12,
+            titleFont: "Times New Roman",
+            titleFontSize: 16
+          }
+        }
+      }
+    });
+
+    // Render Individual Charts
+    vegaEmbed("#vis1", createChartSpec("Canada"));
+    vegaEmbed("#vis2", createChartSpec("United States of America"));
+    vegaEmbed("#vis3", createChartSpec("China"));
+    vegaEmbed("#vis4", createChartSpec("Netherlands"));
+
 </script>
 
 </body>
