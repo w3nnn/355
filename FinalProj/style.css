@@ -1,7 +1,10 @@
-body {
+  
+  body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    padding-top: 4rem;
+    /*text-align: center;*/
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -53,6 +56,78 @@ body {
     margin: 1rem auto;
     display: block;
   } 
+
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.3em;
+  
+  }
+  p {
+    font-size:1rem;
+  }
+  
+
+/*left-right section scroll*/
+.scroll-grid {
+  margin: auto;
+  width: 100%;
+  max-width: 81rem;
+  display: flex;
+  flex-direction: row;
+
+}
+.scroll-order {
+  border-right: 0.05rem solid black;
+}
+.graph-section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-right: 0rem;
+  width: 60rem;
+  /*max-width: 60rem;*/
+}
+.graph-section p{
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.box1 {
+  background-color: white;
+  border-radius: 0.3rem;
+  display: block;
+  /*max-width need to be adjusted for responsiveness*/
+  max-width: 14rem;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-top: 1rem;
+  padding-right: 2rem;
+
+  /*put in responsive*/
+  position: sticky;
+  top: 3rem;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.content-box {
+  border: none;
+  max-width: 44rem;
+  width: 100%;
+  margin-left: 1rem;
+  margin-top:2rem;
+}
+
+
+/*left-right section scroll end*/
+
+
+
 
  @media (max-width: 768px) {
     #vis1, #vis2, #vis3, #vis4 {
