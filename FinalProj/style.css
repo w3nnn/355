@@ -32,6 +32,7 @@
     text-decoration: none;
     cursor: pointer;
     padding: 1rem;
+    
 
   }
   
@@ -65,7 +66,6 @@
     font-family: 'Times New Roman', Times, serif;
     margin-left: 10rem;
     margin-right: 10rem;
-    margin-bottom: 5rem;
     text-align: center;
   }
   
@@ -74,6 +74,18 @@
     font-family: 'Times New Roman', Times, serif;
   
   }
+
+  h3 {
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+  }
+
+  .headingName {
+    padding: 2.5rem;
+
+  }
+
   p {
     font-size:1rem;
     line-height: 1.5;
@@ -93,8 +105,7 @@
   border-right: 0.05rem solid black;
 }
 .graph-section {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+
   margin-right: 0rem;
   width: 60rem;
   /*max-width: 60rem;*/
@@ -105,6 +116,7 @@
   padding-right: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
+  line-height: 2;
 }
 .box1 {
   background-color: #fcfbf5;
@@ -203,3 +215,16 @@
     fill: lightsteelblue;
     opacity: 0.5;
   }
+
+  .fade-in-section {
+    opacity: 0; /* Start transparent */
+    transform: translateY(20px); /* Start slightly below the viewport */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+    will-change: opacity, transform; /* Optimize rendering */
+}
+
+/* Apply full opacity when the section is visible */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0); /* Reset position */
+}

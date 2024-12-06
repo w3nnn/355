@@ -102,6 +102,23 @@ document.addEventListener("DOMContentLoaded", function () {
   
     svg.append("g").attr("class", "axis-y-line").call(d3.axisLeft(y));
   
+    svg
+    .append("text")
+    .attr("class", "x-axis-label")
+    .attr("text-anchor", "middle")
+    .attr("x", width / 2)
+    .attr("y", height + margin.bottom - 10)
+    .text("Year");
+
+    // Y-Axis Label
+    svg
+      .append("text")
+      .attr("class", "y-axis-label")
+      .attr("text-anchor", "top")
+      .attr("x", 0)
+      .attr("y", -20)
+      .text("Overdose Counts, per 100,000");
+      
     // Line generator
     const line = d3
       .line()

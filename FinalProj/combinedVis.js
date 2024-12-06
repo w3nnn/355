@@ -166,5 +166,25 @@ document.addEventListener("DOMContentLoaded", function () {
         .style("text-anchor", "start")
         .text((d) => d);
     });
+
+
+
+
+    // scroll effect
+    const sections = document.querySelectorAll(".fade-in-section");
+
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target); 
+                }
+            });
+        },
+        { threshold: 0.2 } //20% of text is showing
+    );
+
+    sections.forEach(section => observer.observe(section));
   });
   
