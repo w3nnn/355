@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
           .attr("text-anchor", "end")
           .attr("font-size", "14px")
           .attr("fill", "black")  
-          .text("2016: Fentanyl has been increasingly identified in drugs consumed by Canadians")
+          .text("2016: Fentanyl contamination is increasingly found in drugs used by Canadians.")
           .attr("opacity", 0)
           .transition() 
           .duration(1000)  // Transition time
