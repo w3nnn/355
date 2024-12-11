@@ -58,6 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
+
+      
   
     // Scales
     const x = d3
@@ -119,7 +121,16 @@ document.addEventListener("DOMContentLoaded", function () {
       .attr("x", 0)
       .attr("y", -20)
       .text("Overdose Counts, per 100,000");
-      
+
+      svg
+    .append("rect")
+    .attr("x", x(1980))
+    .attr("y", 0)
+    .attr("width", x(1993) - x(1980))
+    .attr("height", height)
+    .attr("fill", "grey") // light grey
+    .attr("opacity", 0.1);
+            
     // Line generator
     const line = d3
       .line()
@@ -133,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .datum(data.filter(d => d.year <= 1993))//showing the 1994 data before user interaction
       .attr("class", "line")
       .attr("d", line);
-
+    
 
 
     // User drawn line data
@@ -151,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .y((d) => y(d.value))
       .defined((d) => d.value !== null)
       .curve(d3.curveCardinal);
+
   
     const userPath = svg
       .append("path")
@@ -229,6 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     function dragended(event) {
       drawing = false;
+
     }
   
     // Show Results
@@ -323,6 +336,8 @@ document.addEventListener("DOMContentLoaded", function () {
               .on("mouseup", null);  
   
         svg.selectAll("*").style("pointer-events", "none");
+
+        
       }
     });
   });

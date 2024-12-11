@@ -134,6 +134,10 @@
     line-height: 1.5;
   }
   
+  li {
+    padding-bottom: 1rem;
+    line-height: 1.5;
+  }
 
 /*left-right section scroll*/
 .scroll-grid {
@@ -248,13 +252,14 @@
   .line {
     fill: none;
     stroke: #3b3434;
-    stroke-width: 2;
+    stroke-width: 3;
   }
 
   .user-line {
     fill: none;
     stroke: #644FA0;
-    stroke-width: 2;
+    stroke-width: 3;
+    
   }
 
   .area {

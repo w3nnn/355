@@ -119,6 +119,16 @@ document.addEventListener("DOMContentLoaded", function () {
     .attr("x", 0)
     .attr("y", -20)
     .text("Overdose Counts, per 100,000");
+
+    
+    svg
+    .append("rect")
+    .attr("x", x(1980))
+    .attr("y", 0)
+    .attr("width", x(1993) - x(1980))
+    .attr("height", height)
+    .attr("fill", "grey") // light grey
+    .attr("opacity", 0.1);
     
   // Line generator
   const line = d3
