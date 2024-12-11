@@ -1,0 +1,418 @@
+
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 4rem;
+    /*text-align: center;*/
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* background-color: 'fefae0'; */
+    background-color: #fcfbf5;
+
+  }
+  
+  /* Navigation bar styling */
+  nav {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;  
+    top: 0;
+    width: 100%;
+    background: #644FA0;
+    /*border-bottom: 1px solid #c2adfa;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+    z-index: 1000;
+
+  }
+  
+  nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 1rem;
+    
+
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* Banner/Header Styling */
+.banner {
+  background-color: #644FA0; /* purple shade */
+  background-image: url('images/banner.png'); /* Add the URL for the image here */
+  background-size: cover;
+  background-position: center;
+  color: #FCFBF5;
+  text-align: left;
+  padding: 15rem;
+  position: relative;
+  margin-top: -1rem;
+}
+
+.banner-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-title {
+  font-family: Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+.banner h1 {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+  font-size: 2.5rem;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+.authors {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-top: 3rem;
+}
+  
+  /* Section styling */
+  section {
+    padding: 30px 20px;
+    border-bottom: 1px solid #ddd;
+    
+  }
+  
+  /* Visualization container styling */
+  #viz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Chart containers */
+  #vis1, #vis2, #vis3, #vis4{
+    width: 100%; 
+    margin: 1rem auto;
+    display: block;
+  } 
+
+  h1 {
+    font-size: 2.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #644FA0;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    margin-left: 2rem;
+  }
+
+  .headingName {
+    padding: 2.5rem;
+
+  }
+
+  p {
+    font-size:1rem;
+    line-height: 1.5;
+  }
+  
+  li {
+    padding-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+/*left-right section scroll*/
+.scroll-grid {
+  margin: auto;
+  width: 100%;
+  max-width: 81rem;
+  display: flex;
+  flex-direction: row;
+
+}
+.scroll-order {
+  border-right: 0.05rem solid black;
+}
+.graph-section {
+
+  margin-right: 0rem;
+  width: 60rem;
+  /*max-width: 60rem;*/
+}
+.graph-section p{
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  line-height: 2;
+}
+.box1 {
+  background-color: #fcfbf5;
+  border-radius: 0.3rem;
+  display: block;
+  /*max-width need to be adjusted for responsiveness*/
+  max-width: 14rem;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-top: 1rem;
+  padding-right: 2rem;
+
+  /*put in responsive*/
+  position: sticky;
+  top: 3rem;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.content-box {
+  border: none;
+  max-width: 44rem;
+  width: 100%;
+  margin-left: 1rem;
+  margin-top:2rem;
+}
+
+
+/*left-right section scroll end*/
+
+
+
+
+ @media (max-width: 768px) {
+    #vis1, #vis2, #vis3, #vis4 {
+      height: 60vh; 
+    }
+  }
+
+
+
+  /* Wenhan */
+
+  .line {
+    /* for smoother transition for the combined graph */
+    transition: stroke-width 0.1s ease;
+  }
+
+  .instruction {
+    text-align: left;
+    font-size: 14px;
+    color: #666363;
+    margin-left: 2rem;
+    margin-bottom: .5rem;
+    font-style: italic;
+    
+  }
+
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #644FA0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+
+  .grid line {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+  }
+
+  .grid path {
+    stroke-width: 0;
+  }
+
+  .line {
+    fill: none;
+    stroke: #3b3434;
+    stroke-width: 3;
+  }
+
+  .user-line {
+    fill: none;
+    stroke: #644FA0;
+    stroke-width: 3;
+    
+  }
+
+  .area {
+    fill: lightsteelblue;
+    opacity: 0.5;
+  }
+
+  .fade-in-section {
+    opacity: 0; /* Start transparent */
+    transform: translateY(20px); /* Start slightly below the viewport */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+    will-change: opacity, transform; /* Optimize rendering */
+}
+
+/* Apply full opacity when the section is visible */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0); /* Reset position */
+}
+
+/*highlighter*/
+@keyframes highlight {
+	to {
+		background-position: 0;
+	}
+}
+
+mark {
+	animation: highlight linear forwards;
+	animation-timeline: view(60% 20%);
+	background: linear-gradient(
+		to right,
+		oklch(0.86 0.19 84.89 / .4) 50%,
+		oklch(0.86 0.19 84.89 / 0) 50%
+	);
+	background-position: 100%;
+	background-size: 200% 100%;
+	border-radius: 0.125rem;
+	padding-inline: 0.125rem;
+}
+
+/*scroll down button*/
+@-webkit-keyframes ani-mouse {
+  0% {
+  opacity: 1;
+  top: 29%;
+  }
+  15% {
+  opacity: 1;
+  top: 50%;
+  }
+  50% {
+  opacity: 0;
+  top: 50%;
+  }
+  100% {
+  opacity: 0;
+  top: 29%;
+  }
+}
+@-moz-keyframes ani-mouse {
+  0% {
+  opacity: 1;
+  top: 29%;
+  }
+  15% {
+  opacity: 1;
+  top: 50%;
+  }
+  50% {
+  opacity: 0;
+  top: 50%;
+  }
+  100% {
+  opacity: 0;
+  top: 29%;
+  }
+}
+@keyframes ani-mouse {
+  0% {
+  opacity: 1;
+  top: 29%;
+  }
+  15% {
+  opacity: 1;
+  top: 50%;
+  }
+  50% {
+  opacity: 0;
+  top: 50%;
+  }
+  100% {
+  opacity: 0;
+  top: 29%;
+  }
+}
+ .scroll-btn {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin-top: 5rem;
+}
+.scroll-btn p{
+  margin-left: -55px;
+
+}
+.scroll-btn > * {
+  display: inline-block;
+  line-height: 18px;
+  font-size: 13px;
+  font-weight: normal;
+  color: #7f8c8d;
+  color: #FCFBF5;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 2px;
+}
+.scroll-btn > *:hover,
+.scroll-btn > *:focus,
+.scroll-btn > *.active {
+  color: #FCFBF5;
+}
+.scroll-btn > *:hover,
+.scroll-btn > *:focus,
+.scroll-btn > *:active,
+.scroll-btn > *.active {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+.scroll-btn .mouse {
+  position: relative;
+  display: block;
+  width: 35px;
+  height: 55px;
+  margin: 0 auto 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 3px solid #FCFBF5;
+  border-radius: 23px;
+}
+.scroll-btn .mouse > * {
+  position: absolute;
+  display: block;
+  top: 29%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: #FCFBF5;
+  border-radius: 50%;
+  -webkit-animation: ani-mouse 2.5s linear infinite;
+  -moz-animation: ani-mouse 2.5s linear infinite;
+  animation: ani-mouse 2.5s linear infinite;
+}

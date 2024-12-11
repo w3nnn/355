@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Visualization with Vega-Lite</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#chart1">Canada</a>
+  <a href="#chart2">United States</a>
+  <a href="#chart3">China</a>
+  <a href="#chart4">Netherlands</a>
+  <a href="#chart5">Summary</a>
+</nav>
+<header class="banner">
+  <div class="banner-content">
+    <p class="project-title">IAT 355 Final Project</p>
+    <h1>Overdose Trends and Drug Regulations:<br> Comparing Canada, USA, China, and the Netherlands from 1980-2021</h1>
+    <p class="authors">Wenhan Miao, Chenny Cao</p>
+  </div>
+  <span class="scroll-btn">
+    <a href="#">
+      <span class="mouse">
+        <span>
+        </span>
+      </span>
+    </a>
+    <p>scroll me</p>
+  </span>
+</header>
+
+<section>
+  <div class="scroll-grid">
+    <!-- the left section (1)-->
+    <div class="scroll-order">
+      <section class="section box1">
+        <div class="content-box">
+          <h2>Introduction to the Issue</h2>
+        </div> 
+      </section> 
+    </div>
+
+      <!-- the right section (1)-->
+    <div>
+      <section class="graph-section">
+        <h3>Understanding the Overdose Crisis</h3>
+        <p>
+          <mark>Drug overdoses are a global crisis</mark>, claiming countless lives and devastating communities. While preventable, <mark>overdose deaths continue to rise</mark>, fueled by opioids like fentanyl and heroin. Countries worldwide have adopted vastly different approaches to tackle this epidemic—with varying success. By exploring <mark>overdose trends and drug regulations</mark> in Canada, the USA, the Netherlands, and China, we reveal the patterns, evaluate the policies, and uncover what more can be done to save lives.
+        </p>    
+      </section>
+    </div>
+
+  </div>
+  
+  <div  id="chart1" class="scroll-grid">
+
+    <!-- the left section (2)-->
+    <div class="scroll-order">
+      <section class="section box1">
+            <div class="content-box">
+                    <h2>Canada Overdose Chart</h2>
+            </div>
+      </section> 
+    </div>
+
+
+      <!-- the right section (2)-->
+    <div class="fade-in-section">
+      <section class="graph-section">
+        
+        <div id="chart-container">
+          <h3>Canada's Chart</h3>
+          <div class="instruction">How do you think overdose rates in Canada changed between 1980 and 2020?</div>
+
+          <div class="instruction"> Please draw your predictions for each year on the chart below.</div>
+
+          <div id="line-chart">
+            
+          </div>
+          <button id="show-results" disabled>Show me how I did.</button>
+        </div>
+        
+        <script src="vis1.js"></script>
+
+          <!-- <div id="vis1"></div> -->
+          <h3>Summary for Canada's Chart:</h3>
+
+          <p>Canada has experienced a <mark>sharp rise in overdose deaths </mark> over the past decade, driven largely by the opioid crisis. In recent years, <mark>harm reduction strategies have been a key focus of Canadian policy</mark>, including the widespread distribution of naloxone kits and the establishment of supervised consumption sites. These efforts aim to reduce fatal overdoses while providing access to addiction treatment. Despite these measures, the data shows a steady increase in overdose deaths, emphasizing the need for continued investment in harm reduction and prevention.</p>
+
+          <ul>
+
+            <li><mark>1987 - Mulroney's National Drug Strategy:</mark> Prime Minister Mulroney introduced Canada’s first National Drug Strategy, focusing on prohibition. However, the emphasis on punitive measures underscored the challenges of tackling drug use without integrating comprehensive harm-reduction and treatment approaches, setting the stage for ongoing policy debates.</li>
+
+            <li><mark>2003 - Insite’s Opening:</mark> Canada launched its first supervised injection site, Insite, as a harm reduction initiative aimed at preventing overdoses and connecting individuals to support services. Despite facing significant opposition from the Harper government, the Supreme Court’s 2011 decision upheld Insite’s operation under the Charter of Rights and Freedoms, representing a pivotal win for harm reduction efforts in Canada.</li>
+
+            <li><mark> 2016–2022 - The Fentanyl Crisis:</mark> The overdose crisis intensified as fentanyl and carfentanil contaminated the drug supply, leading to a dramatic rise in overdose deaths, particularly in British Columbia and Ontario. These potent synthetic opioids entered the Canadian market around 2016, exacerbating the ongoing crisis and overwhelming harm reduction and healthcare systems.</li>
+          </ul>
+          <p>From the 1980s to 2021, Canada's drug policy shifted from strict prohibition to a greater focus on harm reduction. Initially, the government emphasized prevention and enforcement, but by the 2000s, harm reduction measures like supervised injection sites and needle exchanges were introduced. In 2018, cannabis was legalized. Despite ongoing challenges, including the overdose crisis driven by fentanyl, Canada's approach evolved to balance public health measures with legal reforms.</p>
+      </section>
+    </div>
+  </div>
+  <!-- end of chart 1 -->
+
+  <div id="chart2" class="scroll-grid">
+    <!-- the left section (3)-->
+    <div class="scroll-order">
+      <section class="section box1">
+        <div class="content-box">
+              <h2>The United States Overdose Chart</h2>
+        </div>   
+      </section> 
+    </div>
+
+
+      <!-- the right section (3)-->
+    <div class="fade-in-section">
+      <section class="graph-section">
+
+        <div id="chart-container">
+          <h3>USA's Chart</h3>
+          
+          <div class="instruction">How do you think overdose rates in the USA changed between 1980 and 2020?</div>
+
+          <div class="instruction"> Please draw your predictions for each year on the chart below.</div>
+
+
+          <div id="line-chart2"></div>
+          <button id="show-results2" disabled>Show me how I did.</button>
+          <div></div>
+        </div>
+
+        <script src="vis2.js"></script>
+
+          <h3>Summary for the USA's Graph:</h3>
+          
+          <p>The USA has the highest overdose death rate among the countries analyzed. Over the past two decades, overdose deaths have skyrocketed, largely due to the opioid epidemic fueled by prescription painkillers and synthetic opioids like fentanyl. Unlike Canada, the U.S. lacks a unified federal approach to drug policies, as individual states implement varying regulations. This inconsistency has made it challenging to address the crisis effectively. The data highlights sharp increases in overdose deaths after the introduction of fentanyl into the drug market, underscoring the urgent need for cohesive policies and harm reduction strategies.</p>
+
+          <ul>
+            <li><mark>1992 - Clinton's Policies:</mark> While Clinton campaigned on treatment over incarceration, his administration ultimately maintained punitive measures, including crack cocaine sentencing disparities. This aligns with the continued rise in overdose rates during this period, reflecting the limitations of punitive approaches without adequate treatment infrastructure.</li>
+            <li><mark>2010 - Obama’s Harm Reduction Efforts:</mark> Policies like the Fair Sentencing Act, naloxone distribution, and syringe programs signaled a shift toward harm reduction. While these efforts coincided with a leveling off of the graph, the overall increase in overdose rates persisted due to the ongoing opioid crisis and inadequate federal funding for prevention programs.</li>
+          </ul>
+          <p>The USA’s decentralized governance system creates significant variability in drug policies across states, complicating efforts to address overdose trends uniformly. Historically punitive attitudes have gradually shifted toward harm reduction, but the legacy of mass incarceration and inconsistent federal and state policies continue to influence trends. Public perception has moved from stigmatization to growing empathy for addiction as a public health issue, driven by the opioid crisis.</p>
+
+      </section>
+    </div>
+  </div>
+  <div id="chart3" class= "scroll-grid">
+    <!-- the left section (4)-->
+    <div class="scroll-order">
+      <section class="section box1">
+        <div class="content-box">
+          <h2>China Overdose Chart</h2>
+        </div>     
+      </section> 
+    </div>
+
+
+      <!-- the right section (4)-->
+    <div class="fade-in-section">
+      <section class="graph-section">
+
+        <div id="chart-container">
+          <h3>China's Chart</h3>
+          
+          <div class="instruction">How do you think overdose rates in China changed between 1980 and 2020?</div>
+
+          <div class="instruction"> Please draw your predictions for each year on the chart below.</div>
+
+
+          <div id="line-chart3"></div>
+          <button id="show-results3" disabled>Show me how I did.</button>
+          <div></div>
+        </div>
+
+        <script src="vis3.js"></script>
+          <h3>Summary for China's Graph</h3>
+          <p>China has a markedly different approach, with strict drug laws and severe penalties for drug-related offenses. While this approach has kept overdose death rates comparatively low, it comes at the cost of stigmatizing people who use drugs and limiting access to harm reduction services. The data for China shows a sharp decline trend in overdose deaths, that has in recent years beat out the Netherlands.
+          </p>
+          
+          <ul>
+            <li><mark>1990 - Initial Framework:</mark> The "Decision on Drug Control" provided a foundational framework, reflecting the government's commitment to eradicating drug problems. This aligns with the early rise in overdose rates as the country began identifying and addressing the issue.</li>
+            <li><mark>1995 & 2005 - Pre-Legislative Measures:</mark> Measures like compulsory drug rehabilitation and the regulation of narcotic drugs sought to curb addiction and control precursors. Despite these efforts, overdose rates continued to rise, indicating challenges in enforcement or broader social factors.</li>
+            <li><mark>2007 - Anti-Drug Law Passed:</mark> This law marked a turning point, introducing a comprehensive strategy to combat drug use. The stabilization of overdose rates around this time suggests the effectiveness of stricter measures and enhanced rehabilitation.</li>
+          </ul>
+          <p>China's centralized government allows for swift implementation of policies, but its strict punitive measures and stigmatization of drug use often leave little room for harm reduction approaches. Public perception remains influenced by cultural values that emphasize social harmony and collective well-being, reinforcing the effectiveness of authoritarian measures.</p>
+      </section>
+    </div>
+  </div>
+  <div class="scroll-grid">
+    <!-- the left section (4)-->
+    <div id="chart4" class="scroll-order">
+      <section class="section box1">
+        <div class="content-box">
+
+              <h2>The Netherlands Overdose Chart</h2>
+        </div>   
+      </section> 
+    </div>
+
+
+      <!-- the right section (4)-->
+    <div class="fade-in-section">
+      <section class="graph-section">
+
+        <div id="chart-container">
+          <h3>Netherlands' Chart</h3>
+          
+          <div class="instruction">How do you think overdose rates in the Netherlands changed between 1980 and 2020?</div>
+
+          <div class="instruction"> Please draw your predictions for each year on the chart below.</div>
+
+
+          <div id="line-chart4"></div>
+          <button id="show-results4" disabled>Show me how I did.</button>
+          <div></div>
+        </div>
+
+        <script src="vis4.js"></script>
+        <h3>Summary for the Netherlands' Graph:</h3>
+
+          <p>The Netherlands has been a global leader in adopting harm-reduction drug policies, focusing on public health and social support rather than criminalization. This approach has prioritized safe spaces, medical support, needle exchange programs, and supervised injection rooms to reduce drug-related harm. Overdose rates in the Netherlands have been mitigated by these policies, although the country continues to face challenges related to repeat offenders and drug-related behavior.</p>
+
+            <ul>
+              <li><mark>1980 - Revision of the Dutch Opium Act:</mark> The law was updated to separate soft drugs (e.g., cannabis) from hard drugs (e.g., heroin), marking the beginning of a harm-reduction approach that aimed to reduce criminal activity and minimize harm for drug users.</li>
+
+              <li><mark>1996 - First Supervised Injection Room Opens:</mark> The Netherlands launched its first official drug consumption room (DRC) in Maastricht, becoming a global pioneer in the use of supervised injection rooms. These facilities help prevent overdoses and the spread of infectious diseases, while also providing users with access to medical care and rehabilitation.</li>
+
+              <li><mark>2019 - Strengthening Mandatory Treatment for Repeat Offenders:</mark> In 2019, the Dutch government reinforced existing legal frameworks requiring mandatory treatment for drug users who are repeat offenders. This shift continued the focus on balancing harm reduction with accountability, emphasizing rehabilitation during detention rather than solely punitive measures.</li>
+            </ul>
+
+          <p>The Netherlands’ harm-reduction policies underscore a health-centered ethos, demonstrating how systemic measures can mitigate the societal impact of drug use while avoiding punitive approaches. However, recent developments, such as new laws mandating treatment for repeat offenders, show the ongoing evolution of the Dutch strategy.</p>
+          
+            
+      </section>
+    </div>
+  </div>
+
+
+  <div class="scroll-grid">
+    <!-- the left section (4)-->
+    <div id="chart5" class="scroll-order">
+      <section class="section box1">
+        <div class="content-box">
+
+              <h2>The Combined Overdose Chart</h2>
+        </div>   
+      </section> 
+    </div>
+
+
+      <!-- the right section (4)-->
+    <div>
+
+
+        
+        <div id="vis5">  
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="combinedVis.js"></script>
+      </div>
+      
+
+
+      <section id="chart5" class="graph-section">
+
+          <div id="vis5"></div>
+            <h3>Combined Visualization</h3>
+          <div id="line-chartCom"></div>
+
+          <h3>Summary of Global Drug Policies:</h3>
+
+            <p>Drug policies differ across countries due to unique histories and cultural contexts, making a universal solution difficult. China focuses on strict laws and severe penalties, keeping overdose rates low but limiting harm reduction services. The Netherlands, on the other hand, leads with harm-reduction policies like supervised injection rooms, emphasizing public health and rehabilitation. Despite this, in 2019, they reinforced mandatory treatment for repeat offenders, balancing care with accountability.
+            
+              In contrast, Canada and the U.S. have faced challenges with punitive approaches. Canada has shifted toward harm reduction, but the opioid crisis continues to drive overdose deaths. The U.S. struggles with inconsistent state policies, contributing to the ongoing fentanyl epidemic. Each country’s approach must be tailored to its specific needs, balancing health care with social and legal frameworks.</p>
+          
+            
+      </section>
+    </div>
+  </div>
+
+</section>  
+
+
+<script>  
+  
+      const yDomain = [0, 22];
+  
+      const dataUrl = "Drug use disorder death rate - Sheet3.csv";
+  
+      const createChartSpec = (location) => ({
+        $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+        description: `A line graph for ${location}`,
+        data: { url: "Drug use disorder death rate - Sheet3.csv" },
+        transform: [
+          { filter: `datum.location === '${location}'` }
+        ],
+        mark: "line",
+        encoding: {
+          x: {
+            field: "year",
+            type: "ordinal",
+            axis: {
+              title: "Year",
+              labelFont: "Arial",
+              labelFontSize: 12,
+              labelAngle: 45,
+              titleFont: "Times New Roman",
+              titleFontSize: 16
+            }
+          },
+          y: {
+            field: "val",
+            type: "quantitative",
+            scale: { domain: yDomain }, // Shared scale
+            axis: {
+              title: "Death Rate per 100,000",
+              labelFont: "Arial",
+              labelFontSize: 12,
+              titleFont: "Times New Roman",
+              titleFontSize: 16
+            }
+          }
+        }
+      });
+  
+      // Render Individual Charts
+      vegaEmbed("#vis1", createChartSpec("Canada"));
+      vegaEmbed("#vis2", createChartSpec("United States of America"));
+      vegaEmbed("#vis3", createChartSpec("China"));
+      vegaEmbed("#vis4", createChartSpec("Netherlands"));
+  
+  </script>
+
+ 
+
+</body>
+</html>
