@@ -84,7 +84,7 @@
   
   /* Section styling */
   section {
-    padding: 50px 20px;
+    padding: 30px 20px;
     border-bottom: 1px solid #ddd;
     
   }
@@ -210,17 +210,20 @@
   }
 
   .instruction {
-    text-align: center;
-    font-size: 18px;
-    color: #3b3434;
-    margin-top: 20px;
+    text-align: left;
+    font-size: 14px;
+    color: #666363;
+    margin-left: 2rem;
+    margin-bottom: .5rem;
+    font-style: italic;
+    
   }
 
   button {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    background-color: #3b3434;
+    background-color: #644FA0;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -244,13 +247,13 @@
 
   .line {
     fill: none;
-    stroke: steelblue;
+    stroke: #3b3434;
     stroke-width: 2;
   }
 
   .user-line {
     fill: none;
-    stroke: #3b3434;
+    stroke: #644FA0;
     stroke-width: 2;
   }
 
@@ -284,7 +287,7 @@ mark {
 	animation-timeline: view(60% 20%);
 	background: linear-gradient(
 		to right,
-		oklch(0.86 0.19 84.89 / 1) 50%,
+		oklch(0.86 0.19 84.89 / .4) 50%,
 		oklch(0.86 0.19 84.89 / 0) 50%
 	);
 	background-position: 100%;
