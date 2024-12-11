@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Data and chart setup
+  // Data and chart setup China
   const data = [
       { year: 1980, value: 2.131040353 },
       { year: 1981, value: 2.18950367 },
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       { year: 2021, value: 0.8070837633 }
     ];
 
-  const startYear = 1980;
+    const startYear = 1994;
 
   const margin = { top: 50, right: 50, bottom: 50, left: 70 };
   const width = 1000 - margin.left - margin.right;
@@ -127,6 +127,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .y((d) => y(d.value))
     .defined((d) => d.value !== null)
     .curve(d3.curveCardinal);
+
+    svg
+    .append("path")
+    .datum(data.filter(d => d.year <= 1993))//showing the 1994 data before user interaction
+    .attr("class", "line")
+    .attr("d", line);
+
 
   // User drawn line data
   let userData = data.map((d) => {
