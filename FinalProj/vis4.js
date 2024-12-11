@@ -239,9 +239,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       svg// add the line
         .append("line")
-        .attr("x1", x(1987))
-        .attr("x2", x(1987))
-        .attr("y1", 100)
+        .attr("x1", x(1996))
+        .attr("x2", x(1996))
+        .attr("y1", 200)
         .attr("y2", height)
         .transition()
         .duration(1000)  // transition
@@ -252,17 +252,46 @@ document.addEventListener("DOMContentLoaded", function () {
         
       svg // add the text
         .append("text")
-        .attr("x", x(1988)) 
-        .attr("y", 114) 
+        .attr("x", x(1996.5)) 
+        .attr("y", 214) 
         .attr("text-anchor", "start")
         .attr("font-size", "14px")
         .attr("fill", "black")  
-        .text("1987: law passed")
+        .text("1996 - First Supervised Injection Room Opens")
         .attr("opacity", 0)
         .transition() 
         .duration(1000)  // Transition time
         .delay(1000) 
         .attr("opacity", 1); 
+
+        svg// add the line
+          .append("line")
+          .attr("x1", x(2019))
+          .attr("x2", x(2019))
+          .attr("y1", 280)
+          .attr("y2", height)
+          .transition()
+          .duration(1000)  // transition
+          .attr("stroke", "red")
+          .attr("stroke-width", 2)
+          .delay(3000) 
+
+          .attr("stroke-opacity", 1)  // opacity of the line
+          .attr("stroke-dasharray", "5,5");
+          
+        svg // add the text
+          .append("text")
+          .attr("x", x(2018.5)) 
+          .attr("y", 294) 
+          .attr("text-anchor", "end")
+          .attr("font-size", "14px")
+          .attr("fill", "black")  
+          .text("2019 - Strengthening Mandatory Treatment for Repeat Offenders")
+          .attr("opacity", 0)
+          .transition() 
+          .duration(1000)  // Transition time
+          .delay(4000) 
+          .attr("opacity", 1); 
 
       // Change the opacity of the user-drawn line to 30%
       userPath.transition()
