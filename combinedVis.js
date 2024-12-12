@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         d.val = +d.val;
       });
   
-      const margin = { top: 50, right: 50, bottom: 50, left: 70 };
+      const margin = { top: 50, right: 100, bottom: 50, left: 70 };
       const width = 1000 - margin.left - margin.right;
       const height = 500 - margin.top - margin.bottom;
   
@@ -63,6 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
     
         paths.style("opacity", ([loc]) => (loc === location ? 1 : 0.2));
     
+        paths
+        .each(function ([location, values]) {
+          const lastValue = values[values.length - 1];
+          svg
+            .append("text")
+            .attr("x", x(lastValue.year) - 40) 
+            .attr("y", y(lastValue.val)-20)
+            .attr("dy", "0.35em")
+            .style("font-size", "12px")
+            .style("fill", color(location))
+            .text(location);
+  });
         svg
           .selectAll(".point")
           .style("fill", (d) => (d.location === location ? color(d.location) : "grey"));
@@ -142,29 +154,29 @@ document.addEventListener("DOMContentLoaded", function () {
         .style("border-radius", "4px")
         .style("visibility", "hidden");
   
-      const legend = svg
-        .selectAll(".legend")
-        .data(color.domain())
-        .enter()
-        .append("g")
-        .attr("class", "legend")
-        .attr("transform", (d, i) => `translate(0,${i * 20})`);
+      // const legend = svg
+      //   .selectAll(".legend")
+      //   .data(color.domain())
+      //   .enter()
+      //   .append("g")
+      //   .attr("class", "legend")
+      //   .attr("transform", (d, i) => `translate(0,${i * 20})`);
   
-      legend
-        .append("rect")
-        .attr("x", 10) 
-        .attr("y", 0)
-        .attr("width", 18)
-        .attr("height", 18)
-        .style("fill", color);
+      // legend
+      //   .append("rect")
+      //   .attr("x", 10) 
+      //   .attr("y", 0)
+      //   .attr("width", 18)
+      //   .attr("height", 18)
+      //   .style("fill", color);
   
-      legend
-        .append("text")
-        .attr("x", 34) 
-        .attr("y", 9)
-        .attr("dy", ".35em")
-        .style("text-anchor", "start")
-        .text((d) => d);
+      // legend
+      //   .append("text")
+      //   .attr("x", 34) 
+      //   .attr("y", 9)
+      //   .attr("dy", ".35em")
+      //   .style("text-anchor", "start")
+      //   .text((d) => d);
     });
 
 
