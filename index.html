@@ -80,8 +80,6 @@
           <h3>Harm Reduction Strategies and Their Influence on Overdose Trends in Canada...</h3>
           <div class="instruction">How do you think overdose rates in Canada changed between 1980 and 2020?</div>
 
-          <div class="instruction"> Please draw your predictions for each year on the chart below.</div>
-
           <div id="line-chart">
             
           </div>
@@ -129,9 +127,6 @@
           
           <div class="instruction">How do you think overdose rates in the USA changed between 1980 and 2020?</div>
 
-          <div class="instruction"> Please draw your predictions for each year on the chart below.</div>
-
-
           <div id="line-chart2"></div>
           <button id="show-results2" disabled>Show me how I did.</button>
           <div></div>
@@ -172,9 +167,6 @@
           
           <div class="instruction">How do you think overdose rates in China changed between 1980 and 2020?</div>
 
-          <div class="instruction"> Please draw your predictions for each year on the chart below.</div>
-
-
           <div id="line-chart3"></div>
           <button id="show-results3" disabled>Show me how I did.</button>
           <div></div>
@@ -214,9 +206,6 @@
           <h3>A Public Health Approach and Its Effect on Overdose Trends in the Netherlands...</h3>
           
           <div class="instruction">How do you think overdose rates in the Netherlands changed between 1980 and 2020?</div>
-
-          <div class="instruction"> Please draw your predictions for each year on the chart below.</div>
-
 
           <div id="line-chart4"></div>
           <button id="show-results4" disabled>Show me how I did.</button>
@@ -286,58 +275,6 @@
   </div>
 
 </section>  
-
-
-<script>  
-  
-      const yDomain = [0, 22];
-  
-      const dataUrl = "Drug use disorder death rate - Sheet3.csv";
-  
-      const createChartSpec = (location) => ({
-        $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-        description: `A line graph for ${location}`,
-        data: { url: "Drug use disorder death rate - Sheet3.csv" },
-        transform: [
-          { filter: `datum.location === '${location}'` }
-        ],
-        mark: "line",
-        encoding: {
-          x: {
-            field: "year",
-            type: "ordinal",
-            axis: {
-              title: "Year",
-              labelFont: "Arial",
-              labelFontSize: 12,
-              labelAngle: 45,
-              titleFont: "Times New Roman",
-              titleFontSize: 16
-            }
-          },
-          y: {
-            field: "val",
-            type: "quantitative",
-            scale: { domain: yDomain }, // Shared scale
-            axis: {
-              title: "Death Rate per 100,000",
-              labelFont: "Arial",
-              labelFontSize: 12,
-              titleFont: "Times New Roman",
-              titleFontSize: 16
-            }
-          }
-        }
-      });
-  
-      // Render Individual Charts
-      vegaEmbed("#vis1", createChartSpec("Canada"));
-      vegaEmbed("#vis2", createChartSpec("United States of America"));
-      vegaEmbed("#vis3", createChartSpec("China"));
-      vegaEmbed("#vis4", createChartSpec("Netherlands"));
-  
-  </script>
-
  
 
 </body>

@@ -74,7 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .style("font-size", "12px")
             .style("fill", color(location))
             .text(location);
-  });
+          });
+
         svg
           .selectAll(".point")
           .style("fill", (d) => (d.location === location ? color(d.location) : "grey"));
@@ -90,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
           .style("top", `${event.pageY - 20}px`)
           .style("left", `${event.pageX + 20}px`);
       })
+
       .on("mouseout", function () {
         // Reset the line styles
         paths.style("opacity", 1);
@@ -153,30 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .style("padding", "5px")
         .style("border-radius", "4px")
         .style("visibility", "hidden");
-  
-      // const legend = svg
-      //   .selectAll(".legend")
-      //   .data(color.domain())
-      //   .enter()
-      //   .append("g")
-      //   .attr("class", "legend")
-      //   .attr("transform", (d, i) => `translate(0,${i * 20})`);
-  
-      // legend
-      //   .append("rect")
-      //   .attr("x", 10) 
-      //   .attr("y", 0)
-      //   .attr("width", 18)
-      //   .attr("height", 18)
-      //   .style("fill", color);
-  
-      // legend
-      //   .append("text")
-      //   .attr("x", 34) 
-      //   .attr("y", 9)
-      //   .attr("dy", ".35em")
-      //   .style("text-anchor", "start")
-      //   .text((d) => d);
+
     });
 
 

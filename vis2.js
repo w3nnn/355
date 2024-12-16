@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Gridlines
   function make_x_gridlines() {
-    return d3.axisBottom(x).ticks(d3.range(1980, 2021, 5)); // Ensure tick range matches year scale
+    return d3.axisBottom(x).ticks(d3.range(1980, 2021, 5)); 
   }
 
   function make_y_gridlines() {
@@ -169,6 +169,21 @@ document.addEventListener("DOMContentLoaded", function () {
     .attr("class", "user-line");
 
   // Interaction
+
+  const instructionText = svg
+  // this adds the instruction text that disappears after the user starts drawing 
+    .append("text")
+    .attr("x", width / 2)
+    .attr("y", height / 2 - 20)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "16px")
+    .attr("fill", "gray")
+    .attr("class", "instruction-text")
+    .attr("opacity", 1)
+    .transition()
+    .duration(1000)
+    .text("Draw your prediction for overdose counts starting from 1994.");
+
   const overlay = svg
     .append("rect")
     .attr("class", "overlay")
@@ -191,11 +206,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function dragstarted(event) {
     drawing = true;
-    userData.forEach((d) => {
-      if (d.year >= startYear) {
-        d.value = null;
-      }
-    });
+      svg.select(".instruction-text")
+      // svg.select(".instruction-text").remove();
+      // instead of removing, I'm making it fade out
+      .transition()
+      .duration(1000)
+      .attr("opacity", 0)
     userPath.datum(userData).attr("d", userLine);
   }
 
