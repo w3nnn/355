@@ -8,7 +8,7 @@
     /*text-align: center;*/
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    /* height: 100vh; */
     /* background-color: 'fefae0'; */
     background-color: #fcfbf5;
 
@@ -45,7 +45,7 @@
   /* Banner/Header Styling */
 .banner {
   background-color: #644FA0; /* purple shade */
-  background-image: url('images/banner.png'); /* Add the URL for the image here */
+  background-image: url('images/banner.png');
   background-size: cover;
   background-position: center;
   color: #FCFBF5;
@@ -415,4 +415,32 @@ mark {
   -webkit-animation: ani-mouse 2.5s linear infinite;
   -moz-animation: ani-mouse 2.5s linear infinite;
   animation: ani-mouse 2.5s linear infinite;
+}
+
+.navLinksContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center; 
+  align-items: center;
+
+}
+.navLinks{
+  color: #644FA0;
+}
+
+.headerAbout{
+  font-size: 2rem;
+  width: 70%;
+  margin: 5rem auto; 
+
+}
+
+.aboutContent{
+  width: 70%;
+  margin: 0 auto; 
+  justify-content: center;
+  text-align: center; 
+  align-items: center;
+
 }
