@@ -431,16 +431,26 @@ mark {
   animation: ani-mouse 2.5s linear infinite;
 }
 
-.navLinksContainer{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  text-align: center; 
-  align-items: center;
-
+.navLinksContainer {
+  display: flex;         
+  justify-content: flex-end;  
+  align-items: center;   
+  text-align: center;   
+  background: #644FA0;  
+  z-index: 1000;        
+  height: 3rem;
 }
-.navLinks{
-  color: #644FA0;
+
+
+.navLinksContainer a {
+  text-decoration: none;
+  color: #ffffff;       
+  margin: 0 15px;         
+  transition: color 0.3s ease; 
+}
+
+.navLinksContainer a:hover {
+  text-decoration: underline; 
 }
 
 .headerAbout{
