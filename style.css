@@ -63,14 +63,14 @@
 .project-title {
   font-family: Arial, sans-serif;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: semibold;
   margin: 0 0 10px 0;
 }
 
 .banner h1 {
   font-family: 'Times New Roman', Times, serif;
   text-align: left;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   line-height: 1.5;
   margin: 10px 0;
 }
@@ -175,7 +175,6 @@
   padding-left: 1.5rem;
   padding-top: 1rem;
   padding-right: 2rem;
-
   /*put in responsive*/
   position: sticky;
   top: 3rem;
@@ -195,12 +194,27 @@
 
 /*left-right section scroll end*/
 
-
-
+@media (max-width: 1024px) {
+  .box1 {
+    max-width: 5rem;
+  }
+  h2{
+    font-size: 1rem;
+  }
+  .scroll-grid {
+    max-width: 62rem;
+  }
+  .graph-section {
+    width: 46rem;
+  }
+}
 
  @media (max-width: 768px) {
     #vis1, #vis2, #vis3, #vis4 {
       height: 60vh; 
+    }
+    .box1 {
+      max-width: 3rem;
     }
   }
 
@@ -365,7 +379,7 @@ mark {
   margin-top: 5rem;
 }
 .scroll-btn p{
-  margin-left: -55px;
+  margin-left: -4rem;
 
 }
 .scroll-btn > * {
